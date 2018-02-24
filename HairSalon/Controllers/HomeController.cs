@@ -10,23 +10,23 @@ namespace HairSalon.Controllers
         [HttpGet("/")]
         public ActionResult Index()
         {
-        List<City> newCitys = City.GetAll();
-        return View(newCitys);
+        List<Stylist> newStylists = Stylist.GetAll();
+        return View(newStylists);
         }
 
         [HttpPost("/")]
-        public ActionResult GetPopulation()
+        public ActionResult GetName()
         {
-          int cityPopulation = int.Parse(Request.Form["population"]);
-          List<City> newList = City.GetMostPopulous(cityPopulation);
+          int stylistName = int.Parse(Request.Form["stylist"]);
+          List<Stylist> newList = Stylist.GetName(stylistName);
           return View("Index", newList);
         }
 
         [HttpPost("/new")]
         public ActionResult Alpha()
         {
-          string cityName = (Request.Form["name"]);
-          List<City> newList = City.GetAlphabetically(cityName);
+          string stylistName = (Request.Form["name"]);
+          List<Stylist> newList = Stylist.GetAlphabetically(sylistName);
           return View("Index", newList);
         }
 
