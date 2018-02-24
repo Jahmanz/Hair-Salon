@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <title>city-data</title>
+  </head>
+	<body>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>World Data</h1>
+        <h3>Enter number and filter</h3>
+          <form class="form-control" action="/" method="post">
+            <label for="population"></label>
+            <input type="number" name="population">
+            <button type="submit" class="btn btn-success">Filter</button>
+          </form>
+          <form class="form-control" action="/new" method="post">
+            <label for="name"></label>
+            <input type="number" name="name">
+            <button type="submit" class="btn btn-success">Sort Alphabetically</button>
+          </form>
+      </div>
+      @if(Model!=null)
+      {
+        foreach (var city in Model)
+        {
+          <h3>@city.GetName()</h3>
+          <h3>@city.GetPopulation()</h3>
+          <h3>@city.GetDistrict()</h3>
+        }
+      }
+		</div>
+	</body>
+</html>
